@@ -1,10 +1,12 @@
-package repository;
+package cleaningServiceApp.repository;
 
-import entities.Customer;
+import cleaningServiceApp.entities.Customer;
+
+import java.util.ArrayList;
 
 public interface Repository {
     void saveCustomer(Customer customer);
-    Customer getCustomer();
+    ArrayList<Customer> getCustomer();
     double calculateTotalPrice();
     void addPackagePrice(double price); // Tambahkan metode ini
 }

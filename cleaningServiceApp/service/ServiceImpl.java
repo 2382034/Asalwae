@@ -1,8 +1,12 @@
-package service;
+package cleaningServiceApp.service;
 
-import entities.Customer;
-import repository.Repository;
+import cleaningServiceApp.entities.Customer;
+import cleaningServiceApp.repository.Repository;
+import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+
+@Component
 public class ServiceImpl implements Service {
     private Repository repository;
     private double deliveryFee; // Deklarasikan deliveryFee di level kelas
@@ -34,7 +38,7 @@ public class ServiceImpl implements Service {
     }
 
     @Override
-    public Customer getCustomerDetails() {
+    public ArrayList<Customer> getCustomerDetails() {
         return repository.getCustomer();
     }
 
@@ -51,13 +55,16 @@ public class ServiceImpl implements Service {
     }
 
     public void showOrderDetails() {
-        Customer customer = getCustomerDetails();
+        ArrayList<Customer> customerList = getCustomerDetails();
         System.out.println("===== Detail Pesanan =====");
-        System.out.println("Nama: " + customer.getName());
-        System.out.println("Alamat: " + customer.getAddress());
-        System.out.println("Nomor HP: " + customer.getPhone());
-        System.out.println("Ongkos Antar: Rp " + deliveryFee);
-        System.out.println("Total Harga: Rp " + getTotalPrice());
+
+        System.out.println("Nama\tAlamat\tNoHp");
+        for (Customer customer : customerList){
+            System.out.println(customer.getName() + "\t" + customer.getAddress()+ "\t" + customer.getPhone());
+        }
+
+        System.out.println("Ongkos Antar Anda: Rp " + deliveryFee);
+        System.out.println("Total Pembayaran Anda: Rp " + getTotalPrice());
     }
 
 }

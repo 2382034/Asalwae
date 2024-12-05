@@ -1,4 +1,4 @@
-package view;
+package cleaningServiceApp.view;
 
 public interface TerminalView {
     void displayMenu();

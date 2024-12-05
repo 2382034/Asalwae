@@ -1,9 +1,11 @@
-package view;
+package cleaningServiceApp.view;
 
-import service.Service;
+import cleaningServiceApp.service.Service;
+import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
 
+@Component
 public class TerminalViewImpl implements TerminalView {
     private Service service;
     private Scanner scanner = new Scanner(System.in);
@@ -21,7 +23,7 @@ public class TerminalViewImpl implements TerminalView {
         System.out.println("4. Hitung total harga pesanan");
         System.out.println("5. Sistem antar (hitung ongkos jarak)");
         System.out.println("6. Konfirmasi pesanan");
-        System.out.println("7. Tampilkan detail pesanan");
+        System.out.println("7. Tampilkan semua data customer");
         System.out.println("8. Keluar");
         System.out.println("===============================================");
 
@@ -64,7 +66,7 @@ public class TerminalViewImpl implements TerminalView {
                 case 5 -> {
                     System.out.print("Masukkan jarak ke alamat (km): ");
                     int distance = scanner.nextInt();
-                    service.calculateDeliveryFee(distance); // Panggil service untuk menghitung ongkir
+                    service.calculateDeliveryFee(distance); // Panggil cleaningServiceApp.service untuk menghitung ongkir
                     System.out.println("Ongkos kirim berhasil dihitung.");
                 }
                 case 6 ->{

@@ -1,4 +1,4 @@
-package entities;
+package cleaningServiceApp.entities;
 
 public class Customer {
     private String name;
